@@ -1,0 +1,14 @@
+<h1>Posts</h1>
+<div>
+    <div>
+        <h4>Sort posts by:</h4>
+        <button (click)="refresh()">Refresh</button>
+        <button (click)="getNewestPosts()">Newest</button>
+        <button (click)="getOldestPosts()">Oldest</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <app-table [posts]="postList$"></app-table>
+    </div>
+</div>

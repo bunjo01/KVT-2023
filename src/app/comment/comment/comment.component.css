@@ -1,0 +1,50 @@
+/* Style the wrapper div */
+.wrapper {
+    width: 100%; /* Adjust the width as needed */
+    max-width: 400px; /* Example maximum width */
+    margin: 0 auto; /* Center the content horizontally */
+    padding: 20px;
+  }
+  
+  /* Style the custom list */
+  .custom-list {
+    list-style-type: none; /* Remove bullet points from the list */
+    padding: 0;
+  }
+  
+  /* Style list items */
+  .custom-list li {
+    margin-bottom: 20px; /* Add spacing between list items */
+  }
+  
+  /* Style the form within list items */
+  .custom-list form {
+    display: inline-block; /* Display forms side by side */
+  }
+  
+  /* Style the select element */
+  .custom-list select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+  }
+  
+  /* Style the submit button */
+  .custom-list button[type="submit"] {
+    background-color: #007bff; /* Example button color */
+    color: #fff; /* Text color for the button */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  /* Add some spacing between the form and the next list item */
+  .custom-list p {
+    margin-top: 10px;
+  }
+  
+  /* Add a little extra space between the forms */
+  .custom-list form + form {
+    margin-top: 20px;
+  }
+  

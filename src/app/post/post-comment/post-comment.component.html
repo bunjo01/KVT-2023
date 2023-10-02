@@ -1,0 +1,23 @@
+<div class="wrapper-around-comments">
+    <h3>Post comments</h3>
+
+    <app-comment-list [postId]="selectedPost.id"></app-comment-list>
+</div>
+
+<br>
+
+<form (ngSubmit)="onSubmitComment(selectedPost.id)" *ngIf="!submitted" [formGroup]="formComment" class="form1">
+    <div>
+        <label>Comment content</label>
+        <div>
+            <input type="text" id="commentText" placeholder="CommentText" name="CommentText"
+                formControlName="commentText" [(ngModel)]="comment.commentText" required minlength="5">
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <button type="submit">Submit comment</button>
+        </div>
+    </div>
+</form>

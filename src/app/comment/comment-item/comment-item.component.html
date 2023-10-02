@@ -1,0 +1,75 @@
+<div class="container">
+
+  <li class="container">
+  <div >
+      <button (click)="deleteComment()">deleteeeee</button>
+  </div>
+
+  <button
+    (click)="editComment(comment.id, comment.text)">edit comment
+  </button>
+  
+  <div>
+      <div *ngIf="editing" class="container">
+          <form (ngSubmit)="onSubmitEdit()" [formGroup]="formEdit">
+              <label for="cont_i" name="cont_f">Content</label>
+              <br>
+              <textarea id="cont_i" type="text" formControlName="commentText" required></textarea>
+              <br>
+              <button type="submit">Save</button>
+          </form>
+      </div>
+  </div>
+
+
+    <p><b>Coment text :</b> {{ comment.text }}</p>
+
+    <form action="select_report_type" (ngSubmit)="onSubmitReport(comment.id)" [formGroup]="reportForm">
+      <p>Select report type</p>
+      <select name="reason" id="reason" formControlName="reason">
+          <option value="BREAKES_FULES" selected>BREAKES_FULES</option>
+          <option value="HARASSMENT">HARASSMENT</option>
+          <option value="HATE">HATE</option>
+          <option value="SHARING_PERSONAL_INFORMATION">SHARING_PERSONAL_INFORMATION</option>
+          <option value="IMPERSONATION">IMPERSONATION</option>
+          <option value="COPYRIGHT_VIOLATION">COPYRIGHT_VIOLATION</option>
+          <option value="TRADEMARK_VIOLATION">TRADEMARK_VIOLATION</option>
+          <option value="SPAM">SPAM</option>
+          <option value="SELF_HARM_OR_SUICIDE">SELF_HARM_OR_SUICIDE</option>
+          <option value="OTHER">OTHER</option>
+      </select>
+      <p><button type="submit">Report comment</button></p>
+    </form>
+
+    <div>
+      <app-comment-reactions [commentId]="comment.id"></app-comment-reactions>
+      <button (click)="likeComment(comment.id)">LIKE</button>
+      <button (click)="dislikeComment(comment.id)">DISLIKE</button>
+      <button (click)="hearthComment(comment.id)">HEARTH</button>
+      <button (click)="removeReaction(comment.id)">REMOVE REACTION</button>
+    </div>
+
+    <form (ngSubmit)="onSubmitReply(comment.id)" *ngIf="!submitted" [formGroup]="formReply">
+      <div>
+          <label>Reply</label>
+          <div>
+              <input type="text" id="commentText" placeholder="CommentText" name="CommentText"
+                  formControlName="commentText" [(ngModel)]="reply.commentText" required minlength="5">
+          </div>
+      </div>
+
+      <div>
+          <div>
+              <button type="submit">Submit reply</button>
+          </div>
+      </div>
+  </form>
+
+  <div class="container-2">
+    <ul *ngIf="comment.replies && comment.replies.length > 0" >
+      <app-comment-item *ngFor="let reply of comment.replies" [comment]="reply"></app-comment-item>
+    </ul>
+  </div>
+
+  </li>
+</div>

@@ -1,0 +1,59 @@
+<div class="container">
+    <div *ngIf="isPostOwner(selectedPost.user.username)">
+        <button (click)="deletePost()">delete</button>
+    </div>
+
+    <button *ngIf="isPostOwner(selectedPost.user.username)"
+     (click)="editPost(selectedPost.id, selectedPost.content)">edit post</button>
+    <div>
+        <div *ngIf="editing" class="container">
+            <form (ngSubmit)="onSubmit()" [formGroup]="form">
+                <label for="cont_i" name="cont_f">Content</label>
+                <br>
+                <textarea id="cont_i" type="text" formControlName="content" required></textarea>
+                <br>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="wrapper-around-content">
+        <form action="select_report_type" (ngSubmit)="onSubmitReport()" [formGroup]="reportForm">
+            <p>Select report type</p>
+            <select name="reason" id="reason" formControlName="reason">
+                <option value="BREAKES_FULES" selected>BREAKES_FULES</option>
+                <option value="HARASSMENT">HARASSMENT</option>
+                <option value="HATE">HATE</option>
+                <option value="SHARING_PERSONAL_INFORMATION">SHARING_PERSONAL_INFORMATION</option>
+                <option value="IMPERSONATION">IMPERSONATION</option>
+                <option value="COPYRIGHT_VIOLATION">COPYRIGHT_VIOLATION</option>
+                <option value="TRADEMARK_VIOLATION">TRADEMARK_VIOLATION</option>
+                <option value="SPAM">SPAM</option>
+                <option value="SELF_HARM_OR_SUICIDE">SELF_HARM_OR_SUICIDE</option>
+                <option value="OTHER">OTHER</option>
+            </select>
+            <p><button type="submit">Report post</button></p>
+        </form>
+        <h3>Post content: {{selectedPost.content}}</h3>
+        <h4>Created by: {{selectedPost.user.username}}</h4>
+        <div><app-post-reactions [postId]="selectedPost.id"></app-post-reactions>
+            <button (click)="likePost(selectedPost.id)">LIKE</button>
+            <button (click)="dislikePost(selectedPost.id)">DISLIKE</button>
+            <button (click)="hearthPost(selectedPost.id)">HEARTH</button>
+            <button (click)="removeReaction(selectedPost.id)">REMOVE REACTION</button>
+        </div>
+    </div>
+
+    <app-post-comment [selectedPost]="selectedPost"></app-post-comment>
+
+</div>
+
+<div *ngIf="editing" class="container">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+        <label for="cont_i" name="cont_f">Content</label>
+        <br>
+        <textarea id="cont_i" type="text" formControlName="content" required></textarea>
+        <br>
+        <button type="submit">Save</button>
+    </form>
+</div>

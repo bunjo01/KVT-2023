@@ -1,0 +1,53 @@
+/* Style the wrapper around comments */
+.wrapper-around-comments {
+    margin-top: 20px;
+  }
+  
+  /* Style the heading for post comments */
+  .wrapper-around-comments h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Style the form for submitting comments */
+  .form1 {
+    width: 100%; /* Set the form width to 100% of its container */
+    max-width: 400px; /* Limit the maximum width */
+    margin: 20px auto; /* Center the form horizontally */
+    padding: 20px;
+    background-color: #f0f0f0; /* Example background color */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Style form labels */
+  .form1 label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Style form input fields */
+  .form1 input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  /* Style the submit button */
+  .form1 button[type="submit"] {
+    background-color: #007bff; /* Example button color */
+    color: #fff; /* Text color for the button */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  /* Style the submit button on hover */
+  .form1 button[type="submit"]:hover {
+    background-color: #0056b3; /* Example button color on hover */
+  }
+  

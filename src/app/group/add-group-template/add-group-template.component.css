@@ -1,0 +1,40 @@
+/* Style the form container */
+form {
+    max-width: 400px; /* Example maximum width */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px;
+    background-color: #f8f8f8; /* Background color for the form */
+    border: 1px solid #ccc; /* Add a border for distinction */
+    border-radius: 5px; /* Add rounded corners if desired */
+  }
+  
+  /* Style the form labels */
+  form label {
+    font-weight: bold; /* Make the labels bold if desired */
+    display: block; /* Display labels as block elements for better spacing */
+    margin-bottom: 5px; /* Add spacing between labels and inputs */
+  }
+  
+  /* Style the input fields */
+  form input[type="text"] {
+    width: 100%; /* Make the input fields full width within the form */
+    padding: 10px; /* Add padding to the input fields */
+    margin-bottom: 10px; /* Add spacing between input fields */
+    border: 1px solid #ccc; /* Add a border to input fields */
+    border-radius: 3px; /* Add slight rounded corners to input fields */
+  }
+  
+  /* Style the submit button */
+  form button[type="submit"] {
+    background-color: #007bff; /* Example button color */
+    color: #fff; /* Text color for the button */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  /* Style the submit button on hover */
+  form button[type="submit"]:hover {
+    background-color: #0056b3; /* Example button color on hover */
+  }
+  

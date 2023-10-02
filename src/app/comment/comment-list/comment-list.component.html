@@ -1,0 +1,19 @@
+<div>
+    <h4>Sort comments by</h4>
+    <p>likes: 
+        <button (click)="getMostLikedComments()">Most liked</button> 
+        <button (click)="getLeastLikedComments()">least liked</button></p>
+    <p>dislikes: 
+        <button (click)="getMostDislikedComments()">Most disliked</button> 
+        <button (click)="getLeastDislikedComments()">least disliked</button></p>
+    <p>hearths: 
+        <button (click)="getMostHearthedComments()">Most hearths</button> 
+        <button (click)="getLeastHearthedComments()">least hearths</button></p>
+    <p>date: 
+        <button (click)="getOldestComments()">oldest</button> 
+        <button (click)="getNewestComments()">newest</button></p>
+</div>
+
+<ul>
+    <app-comment-item *ngFor="let comment of comments" [comment]="comment"></app-comment-item>
+</ul>

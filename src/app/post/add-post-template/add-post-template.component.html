@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit()" *ngIf="!submitted" [formGroup]="form">
+    <div>
+        <label>Content</label>
+        <div>
+            <input type="text" id="content" placeholder="Content" name="Content" formControlName="content"
+                [(ngModel)]="post.name" required minlength="5">
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </div>
+</form>

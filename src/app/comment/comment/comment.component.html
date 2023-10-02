@@ -1,0 +1,23 @@
+<div class="wrapper">
+    <ul *ngFor="let comment of comments" class="custom-list">
+        <li>Comment text:{{comment.text}}</li>
+
+        <form action="select_report_type" (ngSubmit)="onSubmitReport(comment.id)" [formGroup]="reportForm">
+            <p>Select report type</p>
+            <select name="reason" id="reason" formControlName="reason">
+                <option value="BREAKES_FULES" selected>BREAKES_FULES</option>
+                <option value="HARASSMENT">HARASSMENT</option>
+                <option value="HATE">HATE</option>
+                <option value="SHARING_PERSONAL_INFORMATION">SHARING_PERSONAL_INFORMATION</option>
+                <option value="IMPERSONATION">IMPERSONATION</option>
+                <option value="COPYRIGHT_VIOLATION">COPYRIGHT_VIOLATION</option>
+                <option value="TRADEMARK_VIOLATION">TRADEMARK_VIOLATION</option>
+                <option value="SPAM">SPAM</option>
+                <option value="SELF_HARM_OR_SUICIDE">SELF_HARM_OR_SUICIDE</option>
+                <option value="OTHER">OTHER</option>
+            </select>
+            <p><button type="submit">Report post</button></p>
+        </form>
+    </ul>
+
+</div>

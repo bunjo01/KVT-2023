@@ -1,0 +1,78 @@
+/* Style the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  /* Style table header */
+  thead th {
+    background-color: #f8f8f8; /* Header background color */
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Style table body */
+  tbody tr:nth-child(odd) {
+    background-color: #f8f8f8; /* Alternate row background color */
+  }
+  
+  /* Style table rows */
+  tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Style the links within the table */
+  tbody a {
+    text-decoration: none;
+    color: #007bff; /* Link color */
+  }
+  
+  /* Style the links within the table on hover */
+  tbody a:hover {
+    text-decoration: underline; /* Underline links on hover */
+  }
+  
+  /* Style the container for editing */
+  .container {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  /* Style form labels within the container */
+  .container label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+  }
+  
+  /* Style input fields within the container */
+  .container input[type="text"],
+  .container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  /* Style the submit button within the container */
+  .container button[type="submit"] {
+    background-color: #007bff; /* Example button color */
+    color: #fff; /* Text color for the button */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  /* Style the submit button within the container on hover */
+  .container button[type="submit"]:hover {
+    background-color: #0056b3; /* Example button color on hover */
+  }
+  

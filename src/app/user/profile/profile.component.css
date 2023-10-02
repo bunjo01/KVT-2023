@@ -1,0 +1,96 @@
+/* Style the card container */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  /* Style the user image */
+  .round {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the headings and user information */
+  h3, h6 {
+    text-align: center;
+    margin: 5px 0;
+  }
+  
+  /* Style the buttons */
+  .buttons {
+    margin-top: 20px;
+  }
+  
+  .buttons button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  /* Style the report form */
+  form {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Style the report select */
+  select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  /* Style the report button */
+  form button[type="submit"] {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  /* Style the posts, groups, and friends sections */
+  h3 {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* Style list items for posts, groups, and friends */
+  ul li {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  /* Style the container for the "areFriends" section */
+  .are-friends {
+    margin-top: 20px;
+  }
+  
+  /* Style the headings within the "areFriends" section */
+  .are-friends h3 {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  
+  /* Style list items within the "areFriends" section */
+  .are-friends ul li {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  

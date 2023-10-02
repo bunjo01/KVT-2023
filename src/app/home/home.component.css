@@ -1,0 +1,27 @@
+app-card {
+    margin: 0 50px 0 0;
+}
+
+.custom-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.custom-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+}
+
+.custom-list li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    background-color: #ff0000;
+    /* Customize the bullet color */
+    border-radius: 50%;
+}
+

@@ -1,0 +1,20 @@
+<form (ngSubmit)="onSubmit()" *ngIf="!submitted" [formGroup]="form">
+    <div>
+        <label>Content</label>
+        <div>
+            <input type="text" id="content" placeholder="Content" name="Content" formControlName="content"
+                [(ngModel)]="post.content" required minlength="5">
+        </div>
+    </div>
+    <div>
+        <div>
+            <input type="text" id="id" placeholder="id" name="id"
+                formControlName="id" [(ngModel)]="post.id" required minlength="5" hidden>
+        </div>
+    </div>
+    <div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </div>
+</form>

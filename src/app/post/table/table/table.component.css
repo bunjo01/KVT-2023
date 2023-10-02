@@ -1,0 +1,33 @@
+/* Style the container for each post */
+.form {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the post content and metadata */
+  .content {
+    margin-bottom: 5px;
+  }
+  
+  /* Style links within the post content */
+  .content a {
+    text-decoration: none;
+    color: #007bff; /* You can change this to your preferred link color */
+  }
+  
+  /* Style the buttons for post reactions */
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  
+  /* Style the buttons on hover */
+  button:hover {
+    background-color: #0056b3; /* Darker shade of blue on hover */
+  }
+  

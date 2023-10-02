@@ -1,0 +1,38 @@
+/* Style the container */
+.container {
+    background-color: #333; /* Background color for the container */
+    padding: 10px 0;
+  }
+  
+  /* Style the navigation */
+  nav {
+    text-align: center;
+  }
+  
+  /* Style the navigation ul (unordered list) */
+  nav ul {
+    list-style-type: none; /* Remove bullet points from the list */
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Style the navigation list items */
+  nav li {
+    display: inline;
+    margin-right: 20px; /* Add spacing between list items */
+  }
+  
+  /* Style the navigation links */
+  nav a {
+    text-decoration: none;
+    color: #fff; /* Link color */
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s; /* Smooth color transition on hover */
+  }
+  
+  /* Style the navigation links on hover */
+  nav a:hover {
+    color: #007bff; /* Link color on hover */
+  }
+  

@@ -1,0 +1,18 @@
+<div *ngFor="let post of posts | async" class="form">
+    <div class="content" *ngIf="isGroupPost(post.id)"><a routerLink="/groups/{{post.group.id}}" >Group name : {{post.group.name}}</a></div>
+    <div class="content">Post Content</div>
+    <div class="content"><a routerLink="/posts/{{post.id}}">{{post.content}}</a></div>
+    <div class="content">Creation date</div>
+    <div class="content">{{convertTime(post.creationDate)}}</div>
+    <div class="content">Posted by</div>
+    <div class="content">{{post.user.username}}</div>
+    
+    <div>
+        <app-post-reactions [postId]="post.id"></app-post-reactions>
+        <button (click)="likePost(post.id)">LIKE</button>
+        <button (click)="dislikePost(post.id)">DISLIKE</button>
+        <button (click)="hearthPost(post.id)">HEARTH</button>
+        <button (click)="removeReaction(post.id)">REMOVE REACTION</button>
+    </div>
+    
+</div>

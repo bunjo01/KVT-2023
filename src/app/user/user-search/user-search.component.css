@@ -1,0 +1,44 @@
+/* Style the wrapper */
+.wrapper {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Style the label */
+  label {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Style the search box */
+  #search-box {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  /* Style the search results */
+  .search-result {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+  
+  /* Style the individual search result items */
+  .search-result li {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  /* Style the links in the search results */
+  .search-result a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  /* Style the links on hover */
+  .search-result a:hover {
+    text-decoration: underline;
+  }
+  

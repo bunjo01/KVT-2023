@@ -1,0 +1,94 @@
+/* Style the container */
+.container {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+  }
+  
+  /* Style the report form */
+  .container form {
+    margin-bottom: 20px;
+  }
+  
+  /* Style the select input */
+  .container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  /* Style the submit button */
+  .container button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  /* Style the submit button on hover */
+  .container button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style the content section */
+  .container .wrapper-around-content {
+    margin-bottom: 20px;
+  }
+  
+  /* Style headings */
+  .container h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .container h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style the buttons section */
+  .container .wrapper-around-content div div {
+    margin-top: 10px;
+  }
+  
+  /* Style the reaction buttons */
+  .container .wrapper-around-content button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  /* Style the reaction buttons on hover */
+  .container .wrapper-around-content button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style the editing container */
+  .container.editing {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+  }
+  
+  /* Style the editing textarea */
+  .container.editing textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  

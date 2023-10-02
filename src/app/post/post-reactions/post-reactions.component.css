@@ -1,0 +1,12 @@
+/* Style the container for the likes, dislikes, and hearths */
+p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style the text inside the container */
+  p {
+    font-weight: bold;
+    color: #333; /* You can choose your desired text color */
+  }
+  

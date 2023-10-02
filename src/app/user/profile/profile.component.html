@@ -1,0 +1,130 @@
+
+<div class="card-container">
+    <img class="round" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAM1BMVEXk5ueutLeqsbTn6eqpr7PJzc/j5ebf4eLZ3N2wtrnBxsjN0NLGysy6v8HT1tissra8wMNxTKO9AAAFDklEQVR4nO2d3XqDIAxAlfivoO//tEOZWzvbVTEpic252W3PF0gAIcsyRVEURVEURVEURVEURVEURVEURVEURVEURVEURflgAFL/AirAqzXO9R7XNBVcy9TbuMHmxjN6lr92cNVVLKEurVfK/zCORVvW8iUBnC02dj+Wpu0z0Y6QlaN5phcwZqjkOkK5HZyPAjkIjSO4fIdfcOwFKkJlX4zPu7Ha1tIcwR3wWxyFhRG6g4Je0YpSPDJCV8a2Sv2zd1O1x/2WMDZCwljH+clRrHfWCLGK8REMiql//2si5+DKWKcWeAGcFMzzNrXC/0TUwQ2s6+LhlcwjTMlYsUIQzPOCb7YBiyHopyLXIEKPEkI/TgeuiidK/R9FniUDOjRDpvm0RhqjMyyXNjDhCfIMYl1gGjIMIuYsnGEYRMRZOMMunaLVwpWRW008v6fYKDIzxCwVAeNSO90BJW6emelYBRF/kHpYGVaoxTDAaxOFsfP9y8hpJ4xd7gOcij7JNGQ1EYFgkPJa1jQEiYZXRaRINKxSDUW9n+FT82lSKadkiru9/4XPqSLWOekGPoY05TAvLm9orm+YWuwHoBHkZKijNBJGmeb61eL6Ff/6q7bLr7yvv3vKGhpDRjvgjGaPz+gUg6YgcvpyAR2FIZ9U6nEEyZRTovmEU32KichpGn7C17XrfyH9gK/c0CMP05HZIM2uf9sEveizKveBy9/6Qt7o89ne33D525cfcIMW6ab+TMEukQbQbu+xu7X3A9bChmWaCeAkG17bpntwXgWxHaMzGPmUaR5dQZiKqRVeUZ3047fi3nAu28h4CHxCsZAgmEH8Y27jJAhm8c+5RQzRQNVGhVFSfxOYIjp/pP7RxzjevYXVGf4eLt+BJ1vCuLuLkrgABgCGXZ2wik5uty+oBvNirI6mkzhAf4Gsb58Hcm67Jzd+KwD10BYPLL3e0MjvKrgAULnOfveF/O4N2Xb9BZom3gJes3F9X5Zze8/6Yt09b4CrqsEjUv8oFBaR2rl+6CZr2xVrp24o/WitBKuGrrpl1+bFkmK2qXTON4VpbdfLa7o7y/WdLxG7lm2Lqh2clOwTegbvc/vj2U78CwhA87Bn8G5Nk3eOb0Nsr9flz3sG78UUtue4kpv1xvjg3TMay62BMlTlP+vrOMnJsRmt/ze0jsfkPPYdAH57hK+34PeOyc8XIXu5xT2HsUkdZz+adwg8HGFfQ3K5jtDvbUiO4Di9/ywHGrL88pDizZ++oTp+an+SMX/ndymUCwmHMdO7yuOx83pUx/eEMU0AvxWndwgidAqOZ8ypCwdEfvvEo6D9HwpA8wzvmOJEqAg9ySu8g4x0Hb9hSB/BANEKJ+LbPBU0lzbAJs4xt1AoshKkUGQmiH8/jJ0gdhTTLmSegHlPE0oOdXALnqDjKYh3px//fSgSWG8UqfrrIICzYYSJXRr9BSPbpNzw7gBjKjKOYI7ReIGqQRIap5+5MdjyvuDkExvGeXSlONWZAP3/AZBwJohU7QJRGU+cTVH18ELmRPNBmibW6MT/k1b0XhdkRBvyT6SB6EYv/GvhSmRNpGngRULsAlxMCGNXp7w3FfdEbTEEDdLI9TdIKRUzUesa3I461ER8cpNT7gMRhpKmYVS9ELOgCUQsa4SsulciKiLbY+AnHD8cpuhISsnxpamI84sbDq9qYJgf8wiiOBrC7Ml7M7ZECCqKoiiKoiiKoiiKoijv5AvJxlZRyNWWLwAAAABJRU5ErkJggg==" alt="user" />
+    
+    <h3>username: {{user.username}}</h3>
+    <h6>first name: {{user.firstName}}</h6>
+    <h6>last name: {{user.lastName}}</h6>
+    <h6>Description: {{user.description}}</h6>
+    <div class="buttons">
+        <button (click)="editProfile()">edit profile</button>
+    </div>
+    <br>
+</div>
+
+<div class="" *ngIf="isAdmin()">
+    <h3>Reported users</h3>
+    <div class="">
+        <ul *ngFor="let report of reportedUsers$ | async">
+            <li>User : {{report.reportedUser.username}}</li>
+            <li>Report reason : {{report.reason}}</li>
+            <li><button (click)="acceptReport(report.id)">Accept</button> 
+            <button (click)="declineReport(report.id)">Decline</button></li>
+        </ul>
+    </div>
+</div>
+
+<div class="" *ngIf="isAdmin()">
+    <h3>Banned users</h3>
+    <div class="">
+        <ul *ngFor="let report of bannedUsers$ | async">
+            <li>User : {{report.reportedUser.username}}</li>
+            <li>Report reason : {{report.reason}}</li>
+            <li><button (click)="unban(report.reportedUser.username)">Unban</button></li>
+        </ul>
+    </div>
+</div>
+
+<div class="" *ngIf="isAdmin()">
+    <h3>Reported posts</h3>
+    <div class="">
+        <ul *ngFor="let report of reportedPosts$ | async">
+            <li>Post content : {{report.reportedPost.content}}</li>
+            <li>Report reason : {{report.reason}}</li>
+            <li><button (click)="acceptReport(report.id)">Accept</button> 
+                <button (click)="declineReport(report.id)">Decline</button></li>
+        </ul>
+    </div>
+</div>
+
+<div class="" *ngIf="isAdmin()">
+    <h3>Reported comments</h3>
+    <div class="">
+        <ul *ngFor="let report of reportedComments$ | async">
+            <li>Comment content : {{report.reportedComment.text}}</li>
+            <li>Report reason : {{report.reason}}</li>
+            <li><button (click)="acceptReport(report.id)">Accept</button> 
+                <button (click)="declineReport(report.id)">Decline</button></li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="">
+    <h3>Groups</h3>
+    <div class="">
+        <ul *ngFor="let group of userGroups">
+            <li>Group name : {{group.name}}</li>
+        </ul>
+    </div>
+</div>
+
+<div class="">
+    <h3>Friend requests</h3>
+    <div class="">
+        <ul *ngFor="let friendRequest of friendRequests$ | async">
+            <li>
+                Request sent by : {{friendRequest.fromUser.username}} 
+                <button (click)="approveFriendRequest(friendRequest.id)">approve</button>
+                <button (click)="declineFriendRequest(friendRequest.id)">decline</button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="">
+    <h3>Friends </h3>
+    <div class="">
+        <ul *ngFor="let friend of friends$ | async">
+            <li>
+                Username : {{friend.username}}
+                <br>
+                First name : {{friend.firstName}}
+                <br>
+                Last name : {{friend.lastName}}
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div *ngIf="editing">
+    <form (ngSubmit)="onSubmit()" *ngIf="!submitted" [formGroup]="form">
+        <div>
+            <label>First name</label>
+            <div>
+                <input type="text" id="firstName" placeholder="first name" name="firstName" formControlName="firstName"
+                    [(ngModel)]="user.firstName" required minlength="5">
+            </div>
+        </div>
+        <div>
+            <label>Last name</label>
+            <div>
+                <input type="text" id="lastName" placeholder="lastName" name="lastName"
+                    formControlName="lastName" [(ngModel)]="user.lastName" required minlength="5">
+            </div>
+        </div>
+        <div>
+            <label>Description</label>
+            <div>
+                <input type="text" id="description" placeholder="description" name="description" formControlName="description" 
+                [(ngModel)]="user.description" required
+                    minlength="5">
+            </div>
+        </div>
+        <div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

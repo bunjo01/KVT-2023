@@ -1,0 +1,42 @@
+/* Style the custom list item */
+.custom-list {
+    list-style-type: none; /* Remove bullet points from the list item */
+    margin-bottom: 10px; /* Add spacing between list items */
+  }
+  
+  /* Style the link within the list item */
+  .custom-list a {
+    text-decoration: none; /* Remove underlines from links */
+    background-color: #007bff; /* Example link background color */
+    color: #fff; /* Text color for the link */
+    padding: 10px 20px; /* Padding for the link */
+    border-radius: 3px; /* Add slight rounded corners to the link */
+    display: inline-block; /* Display links as inline blocks */
+    transition: background-color 0.3s; /* Smooth background color transition on hover */
+  }
+  
+  /* Style the link on hover */
+  .custom-list a:hover {
+    background-color: #0056b3; /* Example link background color on hover */
+  }
+  
+  /* Style the h3 heading */
+  h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the row and column layout */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .col {
+    float: left;
+    width: 100%;
+  }
+  
+  /* Add more specific styling for app-group-table if needed */
+  

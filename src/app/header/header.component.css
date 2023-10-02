@@ -1,0 +1,42 @@
+/* Style the app-navbar */
+.app-navbar {
+  background-color: #007bff; /* Example background color */
+  color: #fff; /* Text color for the toolbar */
+}
+
+/* Style the right section of the toolbar */
+.right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Style the buttons */
+button.mat-button {
+  color: #fff; /* Button text color */
+}
+
+/* Style the greeting-button */
+.greeting-button {
+  margin-right: 10px; /* Add some spacing between buttons */
+}
+
+/* Style the greeting-hamburger */
+.greeting-hamburger {
+  margin-right: 10px; /* Add some spacing between buttons */
+}
+
+/* Style the mat-menu */
+.app-header-userMenu {
+  background-color: #fff; /* Background color for the user menu */
+  color: #333; /* Text color for the user menu */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a shadow to the user menu */
+}
+
+/* Style the user-menu content (you may need to target this more specifically) */
+
+
+/* Style the mat-icon */
+mat-icon {
+  font-size: 24px; /* Icon size */
+}

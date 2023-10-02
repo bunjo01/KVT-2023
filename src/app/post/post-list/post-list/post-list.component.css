@@ -1,0 +1,85 @@
+/* Style the main heading */
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the container around sort buttons */
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the sort buttons */
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  /* Style the sort buttons on hover */
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style the row and columns for the table */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .col {
+    flex: 1;
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the app-table component */
+  app-table {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Style the table inside app-table */
+  app-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Style table headers */
+  app-table th {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /* Style table rows */
+  app-table tr {
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Style table cells */
+  app-table td {
+    padding: 10px;
+  }
+  
+  /* Style table links */
+  app-table a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  /* Style table links on hover */
+  app-table a:hover {
+    text-decoration: underline;
+  }
+  

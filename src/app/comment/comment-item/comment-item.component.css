@@ -1,0 +1,78 @@
+/* Style the container div */
+.container {
+    border: 1px solid #ccc; /* Add a border around the container */
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the list item within the container */
+  .container li {
+    list-style-type: none; /* Remove bullet points from the list item */
+    margin-bottom: 20px;
+  }
+  
+  /* Style the comment text */
+  .container p b {
+    font-weight: bold;
+  }
+  
+  /* Style the select element */
+  .container select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+  }
+  
+  /* Style the report button */
+  .container button[type="submit"] {
+    background-color: #007bff; /* Example button color */
+    color: #fff; /* Text color for the button */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  /* Style the reaction buttons and app-comment-reactions component */
+  .container div {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  /* Style the reply form */
+  .container form {
+    margin-top: 20px;
+  }
+  
+  /* Style the input field for replies */
+  .container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+  }
+  
+  /* Style the submit reply button */
+  .container button[type="submit"] {
+    background-color: #007bff; /* Example button color */
+    color: #fff; /* Text color for the button */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  /* Style the container-2 div */
+  .container-2 {
+    margin-top: 20px;
+  }
+  
+  /* Style the nested comment items */
+  .container-2 ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* Add spacing between nested comment items */
+  .container-2 ul app-comment-item {
+    margin-bottom: 10px;
+  }
+  

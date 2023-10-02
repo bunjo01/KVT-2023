@@ -1,0 +1,43 @@
+/* Style the container */
+div {
+    padding: 20px;
+    background-color: #f8f8f8; /* Background color for the container */
+  }
+  
+  /* Style the heading */
+  h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style the button container paragraphs */
+  p {
+    margin-bottom: 10px;
+  }
+  
+  /* Style the buttons */
+  button {
+    padding: 5px 10px;
+    margin-right: 10px;
+    background-color: #007bff; /* Example button color */
+    color: #fff; /* Text color for the button */
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Style the button on hover */
+  button:hover {
+    background-color: #0056b3; /* Example button color on hover */
+  }
+  
+  /* Style the unordered list */
+  ul {
+    list-style-type: none; /* Remove bullet points from the list */
+    padding: 0;
+  }
+  
+  /* Style the app-comment-item components within the list */
+  ul app-comment-item {
+    margin-bottom: 20px; /* Add spacing between comment items */
+  }
+  

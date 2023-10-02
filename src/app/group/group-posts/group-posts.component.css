@@ -1,0 +1,90 @@
+/* Style the headings */
+h3, h4, h5 {
+    font-weight: bold;
+  }
+  
+  /* Style the custom list items */
+  .custom-list {
+    list-style-type: none; /* Remove bullet points from the list item */
+    margin-bottom: 20px; /* Add spacing between list items */
+  }
+  
+  /* Style the buttons */
+  button.button {
+    background-color: #007bff; /* Example button color */
+    color: #fff; /* Text color for the button */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  /* Style the selected post container */
+  .selectedPostDiv {
+    background-color: #f8f8f8; /* Background color for the selected post container */
+    padding: 20px;
+    border: 1px solid #ccc; /* Add a border for distinction */
+    border-radius: 5px; /* Add rounded corners if desired */
+    margin-top: 20px;
+  }
+  
+  /* Style the content within the selected post container */
+  .selectedPostDiv .wrapper-around-content {
+    margin-bottom: 20px;
+  }
+  
+  /* Style the content titles within the selected post container */
+  .selectedPostDiv .contentT {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  /* Style the buttons within the selected post container */
+  .selectedPostDiv .button {
+    margin-top: 10px;
+  }
+  
+  /* Style the form for reporting a post */
+  .selectedPostDiv form {
+    margin-top: 20px;
+  }
+  
+  /* Style the content within the selected post container */
+  .selectedPostDiv .content {
+    margin-top: 10px;
+  }
+  
+  /* Style the form labels within the selected post container */
+  .selectedPostDiv label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+  }
+  
+  /* Style the input fields within the selected post container */
+  .selectedPostDiv input[type="text"],
+  .selectedPostDiv textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  /* Style the comment section */
+  .selectedPostDiv .wrapper-around-comments {
+    margin-top: 20px;
+  }
+  
+  /* Style the custom list items within the comment section */
+  .selectedPostDiv ul.custom-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* Style the replies section */
+  .selectedPostDiv h5 {
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  

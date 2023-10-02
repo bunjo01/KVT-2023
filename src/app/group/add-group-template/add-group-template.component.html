@@ -1,0 +1,21 @@
+<form (ngSubmit)="onSubmit()" *ngIf="!submitted" [formGroup]="form">
+    <div>
+        <label>Name</label>
+        <div>
+            <input type="text" id="name" placeholder="Name" name="Name" formControlName="name"
+                [(ngModel)]="group.name" required minlength="5">
+        </div>
+    </div>
+    <div>
+        <label>Description</label>
+        <div>
+            <input type="text" id="description" placeholder="Description" name="Description"
+                formControlName="description" [(ngModel)]="group.description" required minlength="5">
+        </div>
+    </div>
+    <div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </div>
+</form>

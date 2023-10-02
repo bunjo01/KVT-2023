@@ -1,0 +1,34 @@
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Desription</th>
+            <th>Creation date</th>
+            <!-- <th></th> -->
+        </tr>
+    </thead>
+    <tbody>
+            <tr *ngFor="let group of groups">
+                <td><a routerLink="/groups/{{group.id}}">
+                    {{group.name}}</a>
+                </td>
+                <td>{{group.description}}</td>
+                <td>{{group.creationDate}}</td>
+                <!-- <td><button (click)="editGroup(group.id, group.name, group.description)">edit</button></td> -->
+            </tr>
+    </tbody>
+    <div *ngIf="editing" class="container">
+        <form (ngSubmit)="onSubmit()" [formGroup]="form">
+            <label for="name_i" name="name_f">Name</label>
+            <br>
+            <input id="name_i" type="text" formControlName="name" required>
+            <br>
+            <label for="desc_i" name="desc_f">Description</label>
+            <br>
+            <textarea id="desc_i" type="text" formControlName="description" required></textarea>
+            <br>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</table>

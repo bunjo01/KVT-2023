@@ -1,0 +1,28 @@
+/* Style the buttons */
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  /* Style button hover */
+  button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Style button focus */
+  button:focus {
+    outline: none;
+  }
+  
+  /* Style the buttons within the mat-menu */
+  .mat-menu-item {
+    padding: 0; /* Reset padding to avoid extra spacing */
+  }
+  

@@ -1,0 +1,47 @@
+/* Style the content container */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Style the card title */
+mat-card-title h2 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style the form fields and labels */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Style the form labels */
+mat-form-field label {
+  font-weight: bold;
+}
+
+/* Style the submit button */
+button[type="submit"] {
+  width: 100%;
+}
+
+/* Style the "Go Back" button */
+button[routerLink="/"] {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Style the spinner */
+mat-spinner {
+  margin-top: 20px;
+}
+
+/* Style the error message text */
+.error {
+  color: red;
+}
