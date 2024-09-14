@@ -2,179 +2,188 @@
 <h4>Group description: {{group.description}}</h4>
 
 <div *ngIf="!isBlockedMember()">
-    <button *ngIf="!isMember()" (click)="sendGroupRequest()">Send group request</button>
+  <button *ngIf="!isMember()" (click)="sendGroupRequest()">Send group request</button>
 </div>
 
 <button *ngIf="isAdmin()" (click)="suspendGroup()">Suspend group</button>
 
 <td><button (click)="deleteGroup(group.id)" *ngIf="isGroupAdmin()">delete</button></td>
 
-
 <form (ngSubmit)="onSubmitSuspend()" *ngIf="suspending" [formGroup]="suspendForm">
+  <div>
+    <label>Description</label>
     <div>
-        <label>Description</label>
-        <div>
-            <input type="text" id="description" placeholder="description" name="description" formControlName="description"
-                [(ngModel)]="suspend.description" required minlength="5">
-        </div>
+      <input type="text" id="description" placeholder="description" name="description" formControlName="description" [(ngModel)]="suspend.description" required minlength="5">
     </div>
-
+  </div>
+  <div>
     <div>
-        <div>
-            <button type="submit">Submit</button>
-        </div>
+      <button type="submit">Submit</button>
     </div>
+  </div>
 </form>
 
-
-
 <ul *ngIf="isGroupAdmin()">
-    <h3>Group Requests</h3>
-    <li *ngFor="let request of groupRequests">
-        <p>Group request sent by: {{request.user.username}}</p>
-        <button (click)="approveRequest(request.id)">approve</button>
-        <button (click)="declineRequest(request.id)">decline</button>
-    </li>
+  <h3>Group Requests</h3>
+  <li *ngFor="let request of groupRequests">
+    <p>Group request sent by: {{request.user.username}}</p>
+    <button (click)="approveRequest(request.id)">approve</button>
+    <button (click)="declineRequest(request.id)">decline</button>
+  </li>
 </ul>
 
-<div class="" *ngIf="isGroupAdmin()">
-    <h3>Reported posts</h3>
-    <div class="">
-        <ul *ngFor="let report of reportedPosts$ | async">
-            <li>Post content : {{report.reportedPost.content}}</li>
-            <li>Report reason : {{report.reason}}</li>
-            <li><button (click)="acceptReport(report.id)">Accept</button> 
-                <button (click)="declineReport(report.id)">Decline</button></li>
-        </ul>
-    </div>
+<div *ngIf="isGroupAdmin()">
+  <h3>Reported posts</h3>
+  <ul *ngFor="let report of reportedPosts$ | async">
+    <li>Post content: {{report.reportedPost.content}}</li>
+    <li>Report reason: {{report.reason}}</li>
+    <li>
+      <button (click)="acceptReport(report.id)">Accept</button>
+      <button (click)="declineReport(report.id)">Decline</button>
+    </li>
+  </ul>
 </div>
 
-<div class="" *ngIf="isGroupAdmin()">
-    <h3>Reported comments</h3>
-    <div class="">
-        <ul *ngFor="let report of reportedComments$ | async">
-            <li>Comment content : {{report.reportedComment.text}}</li>
-            <li>Report reason : {{report.reason}}</li>
-            <li><button (click)="acceptReport(report.id)">Accept</button> 
-                <button (click)="declineReport(report.id)">Decline</button></li>
-        </ul>
-    </div>
+<div *ngIf="isGroupAdmin()">
+  <h3>Reported comments</h3>
+  <ul *ngFor="let report of reportedComments$ | async">
+    <li>Comment content: {{report.reportedComment.text}}</li>
+    <li>Report reason: {{report.reason}}</li>
+    <li>
+      <button (click)="acceptReport(report.id)">Accept</button>
+      <button (click)="declineReport(report.id)">Decline</button>
+    </li>
+  </ul>
 </div>
 
 <ul *ngIf="isGroupAdmin()">
-    <h3>Group Admins</h3>
-    <li *ngFor="let admin of groupAdmins">
-        
-        <p>Group admin: {{admin.username}}
-            <button *ngIf="isAdmin()" (click)="deleteGroupAdmin(admin.id)">remove admin</button>
-        </p>
-    </li>
+  <h3>Group Admins</h3>
+  <li *ngFor="let admin of groupAdmins">
+    <p>Group admin: {{admin.username}}
+      <button *ngIf="isAdmin()" (click)="deleteGroupAdmin(admin.id)">remove admin</button>
+    </p>
+  </li>
 </ul>
 
 <ul *ngIf="isMember()">
-    <h3>Group Members</h3>
-    <li *ngFor="let member of groupMembers">
-        <p>Group member: {{member.username}} 
-            <button *ngIf="isGroupAdmin() && !isUserAdmin(member.username)" (click)="promoteMember(member.id)">
-                promote</button>
-            <button *ngIf="isGroupAdmin() && !isUserAdmin(member.username)" (click)="blockMember(member.id)">block member</button>
-        </p>
-    </li>
+  <h3>Group Members</h3>
+  <li *ngFor="let member of groupMembers">
+    <p>Group member: {{member.username}}
+      <button *ngIf="isGroupAdmin() && !isUserAdmin(member.username)" (click)="promoteMember(member.id)">promote</button>
+      <button *ngIf="isGroupAdmin() && !isUserAdmin(member.username)" (click)="blockMember(member.id)">block member</button>
+    </p>
+  </li>
 </ul>
 
 <ul *ngIf="isGroupAdmin()">
-    <h3>Blocked Members</h3>
-    <li *ngFor="let member of blockedMembers">
-        
-        <p>User : {{member.username}}
-            <button *ngIf="isAdmin()" (click)="unblockMember(member.id)">unblock user</button>
-        </p>
-    </li>
+  <h3>Blocked Members</h3>
+  <li *ngFor="let member of blockedMembers">
+    <p>User: {{member.username}}
+      <button *ngIf="isAdmin()" (click)="unblockMember(member.id)">unblock user</button>
+    </p>
+  </li>
 </ul>
 
-<form (ngSubmit)="onSubmit()" *ngIf="!submitted && isMember()" [formGroup]="form">
-    <h3>Create post</h3>
-    <div>
-        <label>Content</label>
-        <div>
-            <input type="text" id="content" placeholder="Content" name="Content" formControlName="content"
-                [(ngModel)]="post.name" required minlength="5">
-        </div>
-    </div>
+<ul *ngIf="isMember()">
+  <h3>Group Posts</h3>
+  <li *ngFor="let post of groupPosts">
+    <p>Content: {{post.content}}
+    </p>
+  </li>
+</ul>
 
+<form (ngSubmit)="onSubmit()" *ngIf="!submitted" [formGroup]="form">
+  <div>
+    <label for="title">Title</label>
     <div>
-        <div>
-            <button type="submit">Submit</button>
-        </div>
+      <input type="text" id="title" placeholder="Title" formControlName="title" required minlength="3">
+      <div *ngIf="form.controls.title.invalid && (form.controls.title.dirty || form.controls.title.touched)">
+        <small *ngIf="form.controls.title.errors.required">Title is required.</small>
+        <small *ngIf="form.controls.title.errors.minlength">Title must be at least 3 characters long.</small>
+      </div>
     </div>
+  </div>
+
+  <div>
+    <label for="content">Content</label>
+    <div>
+      <input type="text" id="content" placeholder="Content" formControlName="content" required minlength="3">
+      <div *ngIf="form.controls.content.invalid && (form.controls.content.dirty || form.controls.content.touched)">
+        <small *ngIf="form.controls.content.errors.required">Content is required.</small>
+        <small *ngIf="form.controls.content.errors.minlength">Content must be at least 3 characters long.</small>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <label for="pdf">PDF</label>
+    <div>
+      <input type="file" id="pdf" (change)="onFileChange($event)" required>
+      <div *ngIf="form.controls.pdf.invalid && (form.controls.pdf.dirty || form.controls.pdf.touched)">
+        <small *ngIf="form.controls.pdf.errors.required">PDF is required.</small>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  </div>
 </form>
 
-<div>
-    <div *ngIf="isMember()">
-        <app-table [posts]="groupPosts$"></app-table>
-    </div>
+<h3>Group Posts</h3>
+
+<div *ngFor="let post of groupPosts$ | async" class="form">
+  <form action="select_report_type" (ngSubmit)="onSubmitReport(post.id)" [formGroup]="reportForm">
+    <p>Select report type</p>
+    <select name="reason" id="reason" formControlName="reason">
+      <option value="BREAKES_FULES" selected>BREAKES_FULES</option>
+      <option value="HARASSMENT">HARASSMENT</option>
+      <option value="HATE">HATE</option>
+      <option value="SHARING_PERSONAL_INFORMATION">SHARING_PERSONAL_INFORMATION</option>
+      <option value="IMPERSONATION">IMPERSONATION</option>
+      <option value="COPYRIGHT_VIOLATION">COPYRIGHT_VIOLATION</option>
+      <option value="TRADEMARK_VIOLATION">TRADEMARK_VIOLATION</option>
+      <option value="SPAM">SPAM</option>
+      <option value="SELF_HARM_OR_SUICIDE">SELF_HARM_OR_SUICIDE</option>
+      <option value="OTHER">OTHER</option>
+    </select>
+    <p><button type="submit">Report post</button></p>
+  </form>
+
+  <div class="contentT">Post Content</div>
+  <div class="content">{{post.content}}</div>
+  <div class="contentT">Creation date</div>
+  <div class="content">{{post.creationDate}}</div>
+  <div class="contentT">Posted by</div>
+  <div class="content">{{post.user.username}}</div>
+  <div class="buttons">
+    <button *ngIf="isOwnerOfPost(post.user.username)" (click)="deletePost(post.id)" class="button">delete</button>
+    <button *ngIf="isOwnerOfPost(post.user.username)" (click)="editPost(post.id, post.content)" class="button">edit</button>
+    <button (click)="onSeeComments(post, post.id)" class="button">see post comment</button>
+  </div>
 </div>
 
-<div *ngIf="selectedPost">
-
+<div *ngIf="selectedPost" class="selectedPostDiv">
+  <div class="wrapper-around-content">
     <h3>Post content: {{selectedPost.content}}</h3>
     <h4>Created by: {{selectedPost.user.username}}</h4>
+    <div><p>LIKES, DISLIKES, HEARTS : {{postReactions}}</p>
+      <button (click)="likePost(selectedPost.id)">LIKE</button>
+      <button (click)="dislikePost(selectedPost.id)">DISLIKE</button>
+      <button (click)="hearthPost(selectedPost.id)">HEART</button>
+      <button (click)="removeReaction(selectedPost.id)">REMOVE REACTION</button>
+    </div>
+  </div>
 
-    <ul *ngFor="let comment of comments">
-        <li>Comment text: {{comment.text}}</li>
-
-        <form (ngSubmit)="onSubmitReply(comment.id)" *ngIf="!submitted" [formGroup]="formReply">
-            <div>
-                <label>Reply</label>
-                <div>
-                    <input type="text" id="commentText" placeholder="CommentText" name="CommentText"
-                        formControlName="commentText" [(ngModel)]="reply.commentText" required minlength="5">
-                </div>
-            </div>
-
-            <div>
-                <div>
-                    <button type="submit">Submit reply</button>
-                </div>
-            </div>
-        </form>
-
-        <div>
-            <h5>Replies</h5>
-            <app-comment [commentId]="comment.id">
-            </app-comment>
-        </div>
-
-    </ul>
-
-
-
-    <br>
-
-    <form (ngSubmit)="onSubmitComment(selectedPost.id)" *ngIf="!submitted" [formGroup]="formComment">
-        <div>
-            <label>Comment content</label>
-            <div>
-                <input type="text" id="commentText" placeholder="CommentText" name="CommentText"
-                    formControlName="commentText" [(ngModel)]="comment.commentText" required minlength="5">
-            </div>
-        </div>
-
-        <div>
-            <div>
-                <button type="submit">Submit comment</button>
-            </div>
-        </div>
-    </form>
+  <app-post-comment [selectedPost]="selectedPost"></app-post-comment>
 </div>
 
 <div *ngIf="editing" class="container">
-    <form (ngSubmit)="onSubmit()" [formGroup]="form">
-        <label for="cont_i" name="cont_f">Content</label>
-        <br>
-        <textarea id="cont_i" type="text" formControlName="content" required></textarea>
-        <br>
-        <button type="submit">Save</button>
-    </form>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <label for="cont_i" name="cont_f">Content</label>
+    <br>
+    <textarea id="cont_i" type="text" formControlName="content" required></textarea>
+    <br>
+    <button type="submit">Save</button>
+  </form>
 </div>
-

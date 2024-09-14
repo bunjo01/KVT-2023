@@ -16,6 +16,7 @@ export class GroupPostsComponent implements OnInit {
   @Input() groupId : number;
 
   groupPosts$!: Observable<any[]>;
+  groupPosts: any[];
 
   editing = false;
   form: FormGroup;
@@ -23,7 +24,7 @@ export class GroupPostsComponent implements OnInit {
   notification: any;
   selectedPost: any;
 
-  postReactions:any;
+  postReactions: any;
 
   loggedUser = this.userService.currentUser;
 
@@ -40,7 +41,9 @@ export class GroupPostsComponent implements OnInit {
 
   ngOnInit() {
     this.loggedUser = this.userService.currentUser;
-    this.groupPosts$ = this.groupService.getGroupsPosts(this.groupId);
+    this.groupService.getGroupsPosts(this.groupId).subscribe(posts => {
+      this.groupPosts = posts;
+    });
 
     this.reportForm = this.formBuilder.group({
       reason: [
@@ -55,7 +58,9 @@ export class GroupPostsComponent implements OnInit {
   }
 
   deletePost(postId: number) {
-    this.postService.delete(postId).subscribe((post) => {});
+    this.postService.delete(postId).subscribe((post) => {
+      this.groupPosts = this.groupPosts.filter(p => p.id !== postId);
+    });
   }
 
   editPost(postId, postContent) {
@@ -78,14 +83,14 @@ export class GroupPostsComponent implements OnInit {
   }
 
   onSubmitReport(postId) {
-    this.postService.report(this.reportForm.value, postId).subscribe((result)=>{});
+    this.postService.report(this.reportForm.value, postId).subscribe((result) => {});
   }
 
-  isOwnerOfPost(user): boolean{
+  isOwnerOfPost(user): boolean {
     this.loggedUser = this.userService.currentUser;
     return this.loggedUser.username == user;
   }
-  
+
   onSubmit() {
     this.postService.edit(this.form.value).subscribe((result) => {});
   }
@@ -112,7 +117,8 @@ export class GroupPostsComponent implements OnInit {
   }
 
   getPostReactions(postId) {
-    this.postService.getPostReaction(postId).subscribe((result) => {this.postReactions = result.toString()});
+    this.postService.getPostReaction(postId).subscribe((result) => {
+      this.postReactions = result.toString();
+    });
   }
-
 }

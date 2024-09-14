@@ -10,8 +10,8 @@ import { Router } from "@angular/router";
   styleUrls: ["./add-group-template.component.css"],
 })
 export class AddGroupTemplateComponent implements OnInit {
-  group = {};
   form: FormGroup;
+  submitted = false;
 
   constructor(
     private groupService: GroupService,
@@ -38,12 +38,37 @@ export class AddGroupTemplateComponent implements OnInit {
           Validators.maxLength(64),
         ]),
       ],
+      pdf: [null, Validators.required]
     });
   }
 
+  onFileChange(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.form.patchValue({
+        pdf: file
+      });
+    }
+  }
+
   onSubmit() {
-    this.groupService.add(this.form.value).subscribe((result) => {
+    this.submitted = true;
+    if (this.form.invalid) {
+      return;
+    }
+  
+    const formData = new FormData();
+    const group = {
+      name: this.form.get('name').value,
+      description: this.form.get('description').value,
+    };
+  
+    formData.append('group', JSON.stringify(group));
+    formData.append('pdf', this.form.get('pdf').value);
+  
+    this.groupService.add(formData).subscribe((result) => {
       this.location.back();
     });
   }
+  
 }

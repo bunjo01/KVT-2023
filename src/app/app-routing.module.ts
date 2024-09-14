@@ -15,6 +15,8 @@ import { GroupDetailsComponent } from "./group/group-details/group-details.compo
 import { FriendProfileComponent } from "./user/friend-profile/friend-profile.component";
 import { PostDetailsComponent } from "./post/post-details/post-details.component";
 import { EditPostTemplateComponent } from "./post/edit-post-template/edit-post-template.component";
+import { SearchGroupComponent } from "./group/search-group/search-group.component";
+import { SearchPostComponent } from "./post/search-post/search-post.component";
 
 const routes: Routes = [
   {
@@ -66,6 +68,14 @@ const routes: Routes = [
   {
     path: "posts/edit/:id",
     component: EditPostTemplateComponent,
+  },
+  {
+    path: 'search',
+    component: SearchGroupComponent,
+  },
+  {
+    path: 'search/posts',
+    component: SearchPostComponent,
   },
 ];
 

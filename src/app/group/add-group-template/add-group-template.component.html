@@ -1,21 +1,37 @@
 <form (ngSubmit)="onSubmit()" *ngIf="!submitted" [formGroup]="form">
+  <div>
+    <label for="name">Name</label>
     <div>
-        <label>Name</label>
-        <div>
-            <input type="text" id="name" placeholder="Name" name="Name" formControlName="name"
-                [(ngModel)]="group.name" required minlength="5">
-        </div>
+      <input type="text" id="name" placeholder="Name" formControlName="name" required minlength="3">
+      <div *ngIf="form.controls.name.invalid && (form.controls.name.dirty || form.controls.name.touched)">
+        <small *ngIf="form.controls.name.errors.required">Name is required.</small>
+        <small *ngIf="form.controls.name.errors.minlength">Name must be at least 3 characters long.</small>
+      </div>
     </div>
+  </div>
+
+  <div>
+    <label for="description">Description</label>
     <div>
-        <label>Description</label>
-        <div>
-            <input type="text" id="description" placeholder="Description" name="Description"
-                formControlName="description" [(ngModel)]="group.description" required minlength="5">
-        </div>
+      <input type="text" id="description" placeholder="Description" formControlName="description" required minlength="3">
+      <div *ngIf="form.controls.description.invalid && (form.controls.description.dirty || form.controls.description.touched)">
+        <small *ngIf="form.controls.description.errors.required">Description is required.</small>
+        <small *ngIf="form.controls.description.errors.minlength">Description must be at least 3 characters long.</small>
+      </div>
     </div>
+  </div>
+
+  <div>
+    <label for="pdf">PDF</label>
     <div>
-        <div>
-            <button type="submit">Submit</button>
-        </div>
+      <input type="file" id="pdf" (change)="onFileChange($event)" required>
+      <div *ngIf="form.controls.pdf.invalid && (form.controls.pdf.dirty || form.controls.pdf.touched)">
+        <small *ngIf="form.controls.pdf.errors.required">PDF is required.</small>
+      </div>
     </div>
+  </div>
+
+  <div>
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  </div>
 </form>

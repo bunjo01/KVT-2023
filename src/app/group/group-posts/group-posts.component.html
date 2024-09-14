@@ -1,119 +1,57 @@
-
-<!-- <ul *ngFor="let post of posts" class="custom-list">
-    <li>Content: {{post.content}}
-        <button (click)="deletePost(post.id)">delete</button>
-        <button (click)="editPost(post.id, post.content)">edit</button>
-    </li>
-    <li>Creation date: {{post.creationDate}}</li>
-    <li>Posted by: {{post.user.username}}</li>
-
-    <button (click)="onSeeComments(post,post.id)">see post comment</button>
-</ul> -->
-
 <h3>Group Posts</h3>
 
-<div *ngFor="let post of groupPosts$ | async" class="form">
+<div *ngFor="let post of groupPosts" class="form">
+  <form action="select_report_type" (ngSubmit)="onSubmitReport(post.id)" [formGroup]="reportForm">
+    <p>Select report type</p>
+    <select name="reason" id="reason" formControlName="reason">
+      <option value="BREAKES_FULES" selected>BREAKES_FULES</option>
+      <option value="HARASSMENT">HARASSMENT</option>
+      <option value="HATE">HATE</option>
+      <option value="SHARING_PERSONAL_INFORMATION">SHARING_PERSONAL_INFORMATION</option>
+      <option value="IMPERSONATION">IMPERSONATION</option>
+      <option value="COPYRIGHT_VIOLATION">COPYRIGHT_VIOLATION</option>
+      <option value="TRADEMARK_VIOLATION">TRADEMARK_VIOLATION</option>
+      <option value="SPAM">SPAM</option>
+      <option value="SELF_HARM_OR_SUICIDE">SELF_HARM_OR_SUICIDE</option>
+      <option value="OTHER">OTHER</option>
+    </select>
+    <p><button type="submit">Report post</button></p>
+  </form>
 
-    <form action="select_report_type" (ngSubmit)="onSubmitReport(post.id)" [formGroup]="reportForm">
-        <p>Select report type</p>
-        <select name="reason" id="reason" formControlName="reason">
-            <option value="BREAKES_FULES" selected>BREAKES_FULES</option>
-            <option value="HARASSMENT">HARASSMENT</option>
-            <option value="HATE">HATE</option>
-            <option value="SHARING_PERSONAL_INFORMATION">SHARING_PERSONAL_INFORMATION</option>
-            <option value="IMPERSONATION">IMPERSONATION</option>
-            <option value="COPYRIGHT_VIOLATION">COPYRIGHT_VIOLATION</option>
-            <option value="TRADEMARK_VIOLATION">TRADEMARK_VIOLATION</option>
-            <option value="SPAM">SPAM</option>
-            <option value="SELF_HARM_OR_SUICIDE">SELF_HARM_OR_SUICIDE</option>
-            <option value="OTHER">OTHER</option>
-        </select>
-        <p><button type="submit">Report post</button></p>
-    </form>
-
-    <div class="contentT">Post Content</div>
-    <div class="content">{{post.content}}</div>
-    <div class="contentT">Creation date</div>
-    <div class="content">{{post.creationDate}}</div>
-    <div class="contentT">Posted by</div>
-    <div class="content">{{post.user.username}}</div>
-    <div class="buttons">
-        <button *ngIf="isOwnerOfPost(post.user.username)" (click)="deletePost(post.id)" class="button">delete</button>
-        <button *ngIf="isOwnerOfPost(post.user.username)" (click)="editPost(post.id, post.content)" class="button">edit</button>
-        <button (click)="onSeeComments(post,post.id)"class="button">see post comment</button>
-    </div>
+  <div class="contentT">Post Content</div>
+  <div class="content">{{post.content}}</div>
+  <div class="contentT">Creation date</div>
+  <div class="content">{{post.creationDate | date:'medium'}}</div>
+  <div class="contentT">Posted by</div>
+  <div class="content">{{post.user.username}}</div>
+  <div class="buttons">
+    <button *ngIf="isOwnerOfPost(post.user.username)" (click)="deletePost(post.id)" class="button">delete</button>
+    <button *ngIf="isOwnerOfPost(post.user.username)" (click)="editPost(post.id, post.content)" class="button">edit</button>
+    <button (click)="onSeeComments(post, post.id)" class="button">see post comment</button>
+  </div>
 </div>
 
 <div *ngIf="selectedPost" class="selectedPostDiv">
-
-    <div class="wrapper-around-content">
-        <h3>Post content: {{selectedPost.content}}</h3>
-        <h4>Created by: {{selectedPost.user.username}}</h4>
-        <div><p>LIKES, DISLIKES, HEARTHS : {{postReactions}}</p>
-            <button (click)="likePost(selectedPost.id)">LIKE</button>
-            <button (click)="dislikePost(selectedPost.id)">DISLIKE</button>
-            <button (click)="hearthPost(selectedPost.id)">HEARTH</button>
-            <button (click)="removeReaction(selectedPost.id)">REMOVE REACTION</button>
-        </div>
+  <div class="wrapper-around-content">
+    <h3>Post content: {{selectedPost.content}}</h3>
+    <h4>Created by: {{selectedPost.user.username}}</h4>
+    <div><p>LIKES, DISLIKES, HEARTS : {{postReactions}}</p>
+      <button (click)="likePost(selectedPost.id)">LIKE</button>
+      <button (click)="dislikePost(selectedPost.id)">DISLIKE</button>
+      <button (click)="hearthPost(selectedPost.id)">HEART</button>
+      <button (click)="removeReaction(selectedPost.id)">REMOVE REACTION</button>
     </div>
+  </div>
 
-    <app-post-comment [selectedPost]="selectedPost"></app-post-comment>
-
-    <!-- <div class="wrapper-around-comments">
-        <ul *ngFor="let comment of comments" class="custom-list">
-            <li>Comment text: {{comment.text}}</li>
-
-            <form (ngSubmit)="onSubmitReply(comment.id)" *ngIf="!submitted" [formGroup]="formReply">
-                <div>
-                    <label>Reply</label>
-                    <div>
-                        <input type="text" id="commentText" placeholder="CommentText" name="CommentText"
-                            formControlName="commentText" [(ngModel)]="reply.commentText" required minlength="5">
-                    </div>
-                </div>
-            
-                <div>
-                    <div>
-                        <button type="submit">Submit reply</button>
-                    </div>
-                </div>
-            </form>
-            
-            <div>
-                <h5>Replies</h5>
-                <app-comment [commentId]="comment.id">
-                </app-comment>
-            </div>
-
-        </ul>
-    </div> -->
-
-
-    <!-- <br>
-
-    <form (ngSubmit)="onSubmitComment(selectedPost.id)" *ngIf="!submitted" [formGroup]="formComment" class="form1">
-        <div>
-            <label>Comment content</label>
-            <div>
-                <input type="text" id="commentText" placeholder="CommentText" name="CommentText"
-                    formControlName="commentText" [(ngModel)]="comment.commentText" required minlength="5">
-            </div>
-        </div>
-    
-        <div>
-            <div>
-                <button type="submit">Submit comment</button>
-            </div>
-        </div>
-    </form> -->
+  <app-post-comment [selectedPost]="selectedPost"></app-post-comment>
 </div>
 
 <div *ngIf="editing" class="container">
-    <form (ngSubmit)="onSubmit()" [formGroup]="form">
-        <label for="cont_i" name="cont_f">Content</label>
-        <br>
-        <textarea id="cont_i" type="text" formControlName="content" required></textarea>
-        <br>
-        <button type="submit">Save</button>
-    </form>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <label for="cont_i" name="cont_f">Content</label>
+    <br>
+    <textarea id="cont_i" type="text" formControlName="content" required></textarea>
+    <br>
+    <button type="submit">Save</button>
+  </form>
 </div>

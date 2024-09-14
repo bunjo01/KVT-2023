@@ -1,0 +1,16 @@
+<form (ngSubmit)="onSearch()" [formGroup]="searchForm">
+    <div>
+      <label for="keywords">Keywords</label>
+      <input type="text" id="keywords" formControlName="keywords" placeholder="Enter keywords">
+    </div>
+    <button type="submit">Search</button>
+  </form>
+  
+  <div *ngIf="groups">
+    <div *ngFor="let group of groups">
+      <h3>Group name:{{ group.name }}</h3>
+      <p>Number of Posts: {{ group.numberOfPosts }}</p>
+      <p>Average Likes: {{ group.averageLikes }}</p>
+    </div>
+  </div>
+  

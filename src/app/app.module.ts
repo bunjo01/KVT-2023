@@ -44,6 +44,8 @@ import { CommentItemComponent } from './comment/comment-item/comment-item.compon
 import { PostDetailsComponent } from './post/post-details/post-details.component';
 import { PostReactionsComponent } from './post/post-reactions/post-reactions.component';
 import { EditPostTemplateComponent } from "./post/edit-post-template/edit-post-template.component";
+import { SearchGroupComponent } from './group/search-group/search-group.component';
+import { SearchPostComponent } from './post/search-post/search-post.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,9 @@ import { EditPostTemplateComponent } from "./post/edit-post-template/edit-post-t
     CommentItemComponent,
     PostDetailsComponent,
     PostReactionsComponent,
-    EditPostTemplateComponent
+    EditPostTemplateComponent,
+    SearchGroupComponent,
+    SearchPostComponent
   ],
   imports: [
     BrowserModule,
